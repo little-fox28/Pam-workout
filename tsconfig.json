@@ -33,6 +33,9 @@
       ],
       "@assets/*": [
         "./assets/*"
+      ],
+      "@lib/*": [
+        "./lib/*"
       ]
     },
     "jsx": "react-jsx",

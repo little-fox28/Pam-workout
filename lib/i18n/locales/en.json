@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "theme": "Theme",
+    "language": "Language",
+    "themeTitle": "Appearance",
+    "themeSubtitle": "Choose your preferred theme",
+    "languageTitle": "Language",
+    "languageSubtitle": "Choose your preferred language",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System Default",
+    "languageEnglish": "English",
+    "languageVietnamese": "Vietnamese"
+  },
+  "common": {
+    "appName": "Pam",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  }
+}

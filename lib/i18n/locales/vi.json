@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "theme": "Giao diện",
+    "language": "Ngôn ngữ",
+    "themeTitle": "Giao diện",
+    "themeSubtitle": "Chọn chủ đề ưa thích của bạn",
+    "languageTitle": "Ngôn ngữ",
+    "languageSubtitle": "Chọn ngôn ngữ ưa thích của bạn",
+    "themeLight": "Sáng",
+    "themeDark": "Tối",
+    "themeSystem": "Mặc định hệ thống",
+    "languageEnglish": "Tiếng Anh",
+    "languageVietnamese": "Tiếng Việt"
+  },
+  "common": {
+    "appName": "Pam",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận"
+  }
+}
