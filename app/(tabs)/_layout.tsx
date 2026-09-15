@@ -1,10 +1,10 @@
 /**
  * Pam App — Tabs Layout
  */
-import { StyleSheet, Platform } from 'react-native';
 import { BlurView } from 'expo-blur';
-import { SymbolView } from 'expo-symbols';
 import { Tabs } from 'expo-router';
+import { SymbolView } from 'expo-symbols';
+import { Platform, StyleSheet } from 'react-native';
 
 import { Colors } from '@constants/Colors';
 import { useResolvedTheme } from '@hooks/useResolvedTheme';
@@ -37,16 +37,26 @@ export default function TabsLayout() {
           borderTopColor: theme.border,
           borderTopWidth: StyleSheet.hairlineWidth,
           position: isIOS ? 'absolute' : 'relative',
-          paddingBottom: isIOS ? 20 : 4,
-          height: isIOS ? 84 : 60,
+          paddingBottom: isIOS ? 22 : 6,
+          paddingTop: isIOS ? 8 : 4,
+          height: isIOS ? 84 : 64,
           elevation: 0,
+        },
+        tabBarItemStyle: {
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        tabBarIconStyle: {
+          justifyContent: 'center',
+          alignItems: 'center',
         },
         tabBarActiveTintColor: theme.primary,
         tabBarInactiveTintColor: theme.muted,
         tabBarLabelStyle: {
           fontSize: 11,
           fontFamily: 'Inter_500Medium',
-          marginBottom: isIOS ? 0 : 4,
+          marginTop: isIOS ? 3 : 2,
+          marginBottom: 0,
         },
       }}
     >
@@ -57,7 +67,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <SymbolView
               name={{ ios: 'house.fill', android: 'home' }}
-              size={size}
+              size={isIOS ? size + 11 : size}
               tintColor={color}
             />
           ),
@@ -71,7 +81,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <SymbolView
               name={{ ios: 'gearshape.fill', android: 'settings' }}
-              size={size}
+              size={isIOS ? size + 11 : size}
               tintColor={color}
             />
           ),
