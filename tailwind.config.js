@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   // NativeWind v4: point to all files that use className
   content: [
     './app/**/*.{js,jsx,ts,tsx}',
@@ -11,8 +12,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        card: 'var(--card)',
+        border: 'var(--border)',
         // Pam brand palette
         primary: {
+          DEFAULT: 'var(--primary)',
+          foreground: 'var(--primary-foreground)',
           50:  '#eef4ff',
           100: '#dae6fe',
           200: '#bcd3fd',
@@ -35,7 +42,10 @@ module.exports = {
           card:    '#1a1d27',
           border:  '#2a2d3e',
         },
-        muted: '#6b7280',
+        muted: {
+          DEFAULT: 'var(--muted)',
+          foreground: 'var(--muted-foreground)',
+        },
       },
       fontFamily: {
         sans:   ['Inter_400Regular', 'sans-serif'],
