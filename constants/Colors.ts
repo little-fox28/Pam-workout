@@ -19,21 +19,21 @@ type ThemeColors = {
 
 export const Colors: Record<'light' | 'dark', ThemeColors> = {
   light: {
-    background: '#f9fafb',
-    foreground: '#111827',
+    background: '#f2f2f7',
+    foreground: '#000000',
     card: '#ffffff',
-    border: '#e5e7eb',
-    primary: '#3a6ef2',
-    muted: '#6b7280',
-    mutedForeground: '#9ca3af',
+    border: '#c6c6c8',
+    primary: '#007aff',
+    muted: '#8e8e93',
+    mutedForeground: '#3c3c4399',
   },
   dark: {
-    background: '#0f1117',
+    background: '#000000',
     foreground: '#ffffff',
-    card: '#1a1d27',
-    border: '#2a2d3e',
-    primary: '#5d90f7',
-    muted: '#9ca3af',
-    mutedForeground: '#6b7280',
+    card: '#1c1c1e',
+    border: '#38383a',
+    primary: '#0a84ff',
+    muted: '#8e8e93',
+    mutedForeground: '#ebebf599',
   },
 } as const;
