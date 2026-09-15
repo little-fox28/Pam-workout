@@ -12,11 +12,13 @@ import {
   useFonts,
 } from '@expo-google-fonts/inter';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen, Stack, type ErrorBoundaryProps } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SymbolView } from 'expo-symbols';
 import { I18nextProvider } from 'react-i18next';
+import { Pressable, ScrollView, Text, View } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import i18n from '../lib/i18n';
 
 import { cssInterop, vars } from 'nativewind';
@@ -146,11 +148,60 @@ export default function RootLayout() {
           <SafeAreaProvider>
             <Stack screenOptions={{ headerShown: false }}>
               <Stack.Screen name="(tabs)" />
+              <Stack.Screen name="referral" options={{ presentation: 'modal', headerShown: false }} />
             </Stack>
             <StatusBar style={resolved === 'dark' ? 'light' : 'dark'} />
           </SafeAreaProvider>
         </QueryClientProvider>
       </I18nextProvider>
     </GestureHandlerRootView>
+  );
+}
+
+/**
+ * Root Error Boundary for Expo Router
+ * Catches any fatal JavaScript rendering errors and displays a native iOS-themed fallback UI.
+ */
+export function ErrorBoundary({ error, retry }: ErrorBoundaryProps) {
+  return (
+    <SafeAreaView className="flex-1 bg-systemGroupedBackground justify-center items-center px-6">
+      <View className="w-full max-w-sm items-center">
+        {/* iOS Warning Icon Badge */}
+        <View className="h-16 w-16 items-center justify-center rounded-2xl bg-systemRed/10 mb-4">
+          <SymbolView
+            name={{ ios: 'exclamationmark.triangle.fill', android: 'warning' }}
+            size={36}
+            tintColor="#ff3b30"
+          />
+        </View>
+
+        {/* HIG Title & Subtitle */}
+        <Text className="text-ios-title2 font-bold text-label text-center mb-2">
+          Đã có lỗi xảy ra
+        </Text>
+        <Text className="text-ios-body text-secondaryLabel text-center mb-6">
+          Ứng dụng gặp phải sự cố không mong muốn. Bạn có thể thử lại để tiếp tục phiên tập luyện.
+        </Text>
+
+        {/* Developer Diagnostics (Dev-only) */}
+        {__DEV__ && (
+          <ScrollView className="max-h-40 w-full rounded-ios-cell bg-secondarySystemGroupedBackground p-3 mb-6">
+            <Text className="text-ios-caption1 font-mono text-systemRed">
+              {error.message}
+            </Text>
+          </ScrollView>
+        )}
+
+        {/* Recovery Action CTA */}
+        <Pressable
+          onPress={retry}
+          className="w-full h-12 rounded-ios-card bg-systemBlue items-center justify-center active:opacity-85"
+        >
+          <Text className="text-ios-headline text-white font-semibold">
+            Thử lại
+          </Text>
+        </Pressable>
+      </View>
+    </SafeAreaView>
   );
 }
