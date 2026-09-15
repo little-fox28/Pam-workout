@@ -8,7 +8,7 @@
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Ionicons } from '@expo/vector-icons';
+import { SymbolView, type SFSymbol, type AndroidSymbol } from 'expo-symbols';
 import { useTranslation } from 'react-i18next';
 
 import { Colors } from '@constants/Colors';
@@ -16,11 +16,16 @@ import { useResolvedTheme } from '@hooks/useResolvedTheme';
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@lib/i18n';
 import { type ThemeMode, useSettingsStore } from '@store/useSettingsStore';
 
+type ThemeSymbol = {
+  ios: SFSymbol;
+  android: AndroidSymbol;
+};
+
 // ─── Theme option config ──────────────────────────────────────────────────────
-const THEME_OPTIONS: { value: ThemeMode; icon: keyof typeof Ionicons.glyphMap }[] = [
-  { value: 'light', icon: 'sunny-outline' },
-  { value: 'dark', icon: 'moon-outline' },
-  { value: 'system', icon: 'phone-portrait-outline' },
+const THEME_OPTIONS: { value: ThemeMode; icon: ThemeSymbol }[] = [
+  { value: 'light', icon: { ios: 'sun.max', android: 'light_mode' } },
+  { value: 'dark', icon: { ios: 'moon', android: 'dark_mode' } },
+  { value: 'system', icon: { ios: 'iphone', android: 'smartphone' } },
 ];
 
 export default function SettingsScreen() {
@@ -66,10 +71,10 @@ export default function SettingsScreen() {
                       : 'border-border bg-card',
                   ].join(' ')}
                 >
-                  <Ionicons
+                  <SymbolView
                     name={icon}
                     size={22}
-                    color={isActive ? theme.primary : theme.muted}
+                    tintColor={isActive ? theme.primary : theme.muted}
                   />
                   <Text
                     className={`text-xs font-medium capitalize ${isActive ? 'text-primary' : 'text-muted-foreground'
@@ -108,7 +113,11 @@ export default function SettingsScreen() {
                     {nativeLabel}
                   </Text>
                   {isActive && (
-                    <Ionicons name="checkmark-circle" size={20} color={theme.primary} />
+                    <SymbolView
+                      name={{ ios: 'checkmark.circle.fill', android: 'check_circle' }}
+                      size={20}
+                      tintColor={theme.primary}
+                    />
                   )}
                 </TouchableOpacity>
               );

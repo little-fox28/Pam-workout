@@ -1,7 +1,7 @@
 /**
  * Pam App — Tabs Layout
  */
-import { Ionicons } from '@expo/vector-icons';
+import { SymbolView } from 'expo-symbols';
 import { Tabs } from 'expo-router';
 
 import { Colors } from '@constants/Colors';
@@ -41,7 +41,11 @@ export default function TabsLayout() {
         options={{
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />
+            <SymbolView
+              name={{ ios: 'house', android: 'home' }}
+              size={size}
+              tintColor={color}
+            />
           ),
         }}
       />
@@ -51,7 +55,11 @@ export default function TabsLayout() {
         options={{
           title: t("tabs.settings"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-outline" size={size} color={color} />
+            <SymbolView
+              name={{ ios: 'gearshape', android: 'settings' }}
+              size={size}
+              tintColor={color}
+            />
           ),
         }}
       />
