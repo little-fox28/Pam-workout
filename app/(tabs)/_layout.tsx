@@ -1,6 +1,8 @@
 /**
  * Pam App — Tabs Layout
  */
+import { StyleSheet, Platform } from 'react-native';
+import { BlurView } from 'expo-blur';
 import { SymbolView } from 'expo-symbols';
 import { Tabs } from 'expo-router';
 
@@ -13,6 +15,8 @@ export default function TabsLayout() {
   const theme = Colors[resolved];
   const { t } = useTranslation();
 
+  const isIOS = Platform.OS === 'ios';
+
   return (
     <Tabs
       screenOptions={{
@@ -20,19 +24,29 @@ export default function TabsLayout() {
         sceneStyle: {
           backgroundColor: theme.background,
         },
+        tabBarBackground: () =>
+          isIOS ? (
+            <BlurView
+              intensity={95}
+              tint={resolved === 'dark' ? 'systemChromeMaterialDark' : 'systemChromeMaterialLight'}
+              style={StyleSheet.absoluteFill}
+            />
+          ) : undefined,
         tabBarStyle: {
-          backgroundColor: theme.card,
+          backgroundColor: isIOS ? 'transparent' : theme.card,
           borderTopColor: theme.border,
-          borderTopWidth: 1,
-          paddingBottom: 4,
-          height: 60,
+          borderTopWidth: StyleSheet.hairlineWidth,
+          position: isIOS ? 'absolute' : 'relative',
+          paddingBottom: isIOS ? 20 : 4,
+          height: isIOS ? 84 : 60,
+          elevation: 0,
         },
         tabBarActiveTintColor: theme.primary,
         tabBarInactiveTintColor: theme.muted,
         tabBarLabelStyle: {
-          fontSize: 12,
+          fontSize: 11,
           fontFamily: 'Inter_500Medium',
-          marginBottom: 4,
+          marginBottom: isIOS ? 0 : 4,
         },
       }}
     >
@@ -42,7 +56,7 @@ export default function TabsLayout() {
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
             <SymbolView
-              name={{ ios: 'house', android: 'home' }}
+              name={{ ios: 'house.fill', android: 'home' }}
               size={size}
               tintColor={color}
             />
@@ -56,7 +70,7 @@ export default function TabsLayout() {
           title: t("tabs.settings"),
           tabBarIcon: ({ color, size }) => (
             <SymbolView
-              name={{ ios: 'gearshape', android: 'settings' }}
+              name={{ ios: 'gearshape.fill', android: 'settings' }}
               size={size}
               tintColor={color}
             />
