@@ -1,23 +1,19 @@
-/**
- * Pam App — MMKV Singleton
- *
- * Single shared MMKV instance used by both the Zustand persist middleware
- * and the i18n language detector. Using one instance avoids redundant native
- * bridge calls and keeps storage concerns centralized.
- *
- * NFN-S1: Reads/writes are fully synchronous — no Promise overhead.
- */
-import { MMKV } from 'react-native-mmkv';
+import { StateStorage } from 'zustand/middleware';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const storage = new MMKV({ id: 'pam-storage' });
+// Interface chuẩn cho Storage Adapter
+export interface IAppStorage {
+  getItem: (name: string) => string | null | Promise<string | null>;
+  setItem: (name: string, value: string) => void | Promise<void>;
+  removeItem: (name: string) => void | Promise<void>;
+}
 
-/**
- * StateStorage adapter for zustand/middleware `persist`.
- * Zustand's persist middleware expects a storage interface with
- * getItem / setItem / removeItem — this bridges MMKV to that contract.
- */
-export const mmkvStorage = {
-  getItem: (key: string): string | null => storage.getString(key) ?? null,
-  setItem: (key: string, value: string): void => storage.set(key, value),
-  removeItem: (key: string): void => storage.delete(key),
+export const createAppStorage = (): StateStorage => {
+  return {
+    getItem: (name: string) => AsyncStorage.getItem(name),
+    setItem: (name: string, value: string) => AsyncStorage.setItem(name, value),
+    removeItem: (name: string) => AsyncStorage.removeItem(name),
+  };
 };
+
+export const mmkvStorage = createAppStorage();

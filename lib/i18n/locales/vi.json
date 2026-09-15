@@ -1,7 +1,12 @@
 {
+  "tabs": {
+    "home": "Trang chủ",
+    "settings": "Cài đặt"
+  },
   "settings": {
     "theme": "Giao diện",
     "language": "Ngôn ngữ",
+    "settingsTitle": "Cài đặt",
     "themeTitle": "Giao diện",
     "themeSubtitle": "Chọn chủ đề ưa thích của bạn",
     "languageTitle": "Ngôn ngữ",

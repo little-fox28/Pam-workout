@@ -1,7 +1,12 @@
 {
+  "tabs": {
+    "home": "Home",
+    "settings": "Settings"
+  },
   "settings": {
     "theme": "Theme",
     "language": "Language",
+    "settingsTitle": "Settings",
     "themeTitle": "Appearance",
     "themeSubtitle": "Choose your preferred theme",
     "languageTitle": "Language",
