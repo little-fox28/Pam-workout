@@ -61,13 +61,27 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
+        name="timer"
+        options={{
+          title: t('tabs.timer'),
+          tabBarIcon: ({ color, size }) => (
+            <SymbolView
+              name={{ ios: 'timer', android: 'timer' }}
+              size={isIOS ? size + 6 : size}
+              tintColor={color}
+            />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
         name="index"
         options={{
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
             <SymbolView
               name={{ ios: 'house.fill', android: 'home' }}
-              size={isIOS ? size + 11 : size}
+              size={isIOS ? size + 6 : size}
               tintColor={color}
             />
           ),
@@ -81,7 +95,7 @@ export default function TabsLayout() {
           tabBarIcon: ({ color, size }) => (
             <SymbolView
               name={{ ios: 'gearshape.fill', android: 'settings' }}
-              size={isIOS ? size + 11 : size}
+              size={isIOS ? size + 6 : size}
               tintColor={color}
             />
           ),

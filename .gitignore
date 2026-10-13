@@ -1,41 +1,100 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# ==============================================================================
+# 1. DEPENDENCIES & PACKAGE MANAGERS
+# ==============================================================================
 node_modules/
+.pnp
+.pnp.js
 
-# Expo
+# ==============================================================================
+# 2. ENVIRONMENT & SECRETS
+# ==============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+
+# Android Keystores & Credentials
+*.jks
+*.keystore
+google-services.json
+
+# iOS Certificates & Provisioning Profiles
+*.p8
+*.p12
+*.mobileprovision
+GoogleService-Info.plist
+
+# ==============================================================================
+# 3. EXPO & METRO BUNDLER CACHE
+# ==============================================================================
 .expo/
 dist/
 web-build/
 expo-env.d.ts
-
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
+.metro/
 .metro-health-check*
+.turbo/
 
-# debug
+# ==============================================================================
+# 4. NATIVE BUILD ARTIFACTS & BINARIES
+# ==============================================================================
+/ios
+/android
+
+# Native compilation artifacts
+*.orig.*
+.kotlin/
+
+# Output binaries
+*.apk
+*.aab
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ==============================================================================
+# 5. LOGS & DEBUGGING
+# ==============================================================================
+*.log
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+pnpm-debug.*
 
+# ==============================================================================
+# 6. IDE & EDITORS
+# ==============================================================================
+# Android Studio
+.idea/
+*.iml
+.gradle/
+build/
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ==============================================================================
+# 7. OPERATING SYSTEM ARTIFACTS
+# ==============================================================================
 # macOS
 .DS_Store
-*.pem
+.AppleDouble
+.LSOverride
+Icon?
+._*
 
-# local env files
-.env*.local
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# typescript
+# ==============================================================================
+# 8. TESTING & TYPESCRIPT
+# ==============================================================================
+coverage/
+*.lcov
 *.tsbuildinfo
-
-# generated native folders
-/ios
-/android
