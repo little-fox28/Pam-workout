@@ -42,6 +42,7 @@
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
+    "types": ["jest"],
     "noEmit": true
   },
   "include": [

@@ -13,8 +13,8 @@ interface UseRepCounterReturn {
 }
 
 export const useRepCounter = (): UseRepCounterReturn => {
-    const repCount = useTimerStore((s) => s.repCount);
-    const targetReps = useTimerStore((s) => s.targetReps);
+    const repCount = useTimerStore((s) => s.currentReps);
+    const targetReps = 10;
     const incrementRep = useTimerStore((s) => s.incrementRep);
     const decrementRep = useTimerStore((s) => s.decrementRep);
     const resetReps = useTimerStore((s) => s.resetReps);
