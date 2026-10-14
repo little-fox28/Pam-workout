@@ -8,7 +8,7 @@ import { useRouter } from 'expo-router';
 
 import { ROUTES } from '@constants/index';
 import { useAuthStore } from '@store/useAuthStore';
-import type { LoginCredentials, RegisterCredentials } from '@types/index';
+import type { LoginCredentials, RegisterCredentials } from '@/types';
 
 export const useAuth = () => {
   const router = useRouter();

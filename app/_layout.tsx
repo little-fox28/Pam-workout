@@ -21,9 +21,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import i18n from '../lib/i18n';
 
-import { cssInterop, vars } from 'nativewind';
 import { useResolvedTheme } from '@hooks/useResolvedTheme';
 import { useAuthStore } from '@store/useAuthStore';
+import { cssInterop, vars } from 'nativewind';
 
 cssInterop(GestureHandlerRootView, { className: 'style' });
 
@@ -148,7 +148,6 @@ export default function RootLayout() {
           <SafeAreaProvider>
             <Stack screenOptions={{ headerShown: false }}>
               <Stack.Screen name="(tabs)" />
-              <Stack.Screen name="referral" options={{ presentation: 'modal', headerShown: false }} />
             </Stack>
             <StatusBar style={resolved === 'dark' ? 'light' : 'dark'} />
           </SafeAreaProvider>

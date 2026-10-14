@@ -23,5 +23,17 @@
     "save": "Save",
     "cancel": "Cancel",
     "confirm": "Confirm"
+  },
+  "timer": {
+    "title": "Timer",
+    "repCounter": "Rep Counter",
+    "target": "Target",
+    "completeSet": "Complete Set",
+    "reset": "Reset",
+    "holdToReset": "Hold to reset",
+    "tapToCount": "Tap to count",
+    "sets": "Sets",
+    "work": "Work",
+    "rest": "Rest"
   }
 }

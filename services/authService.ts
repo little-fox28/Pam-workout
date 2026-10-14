@@ -2,7 +2,7 @@
  * Pam App — Auth Service
  * All auth-related API calls live here.
  */
-import type { ApiResponse, AuthTokens, LoginCredentials, RegisterCredentials, User } from '@types/index';
+import type { ApiResponse, AuthTokens, LoginCredentials, RegisterCredentials, User } from '@/types';
 
 import apiClient from './api';
 

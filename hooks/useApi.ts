@@ -11,7 +11,7 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 
-import type { ApiError } from '@types/index';
+import type { ApiError } from '@/types';
 
 /**
  * Typed query hook — wraps useQuery with sane defaults.

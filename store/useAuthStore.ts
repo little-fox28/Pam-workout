@@ -7,7 +7,7 @@ import { create } from 'zustand';
 import { STORAGE_KEYS } from '@constants/index';
 import { authService } from '@services/authService';
 import { clearAll, getItem, removeItem, setItem } from '@services/storage';
-import type { AuthTokens, LoginCredentials, RegisterCredentials, User } from '@types/index';
+import type { AuthTokens, LoginCredentials, RegisterCredentials, User } from '@/types';
 
 interface AuthStore {
   // ─── State ──────────────────────────────────────────────────────────────

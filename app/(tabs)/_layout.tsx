@@ -3,8 +3,9 @@
  */
 import { BlurView } from 'expo-blur';
 import { Tabs } from 'expo-router';
-import { SymbolView } from 'expo-symbols';
 import { Platform, StyleSheet } from 'react-native';
+
+import { NativeIcon } from '@components/common';
 
 import { Colors } from '@constants/Colors';
 import { useResolvedTheme } from '@hooks/useResolvedTheme';
@@ -65,11 +66,7 @@ export default function TabsLayout() {
         options={{
           title: t('tabs.timer'),
           tabBarIcon: ({ color, size }) => (
-            <SymbolView
-              name={{ ios: 'timer', android: 'timer' }}
-              size={isIOS ? size + 6 : size}
-              tintColor={color}
-            />
+            <NativeIcon name="timer" size={size} color={color} />
           ),
         }}
       />
@@ -79,11 +76,7 @@ export default function TabsLayout() {
         options={{
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
-            <SymbolView
-              name={{ ios: 'house.fill', android: 'home' }}
-              size={isIOS ? size + 6 : size}
-              tintColor={color}
-            />
+            <NativeIcon name="home" size={size} color={color} />
           ),
         }}
       />
@@ -93,11 +86,7 @@ export default function TabsLayout() {
         options={{
           title: t("tabs.settings"),
           tabBarIcon: ({ color, size }) => (
-            <SymbolView
-              name={{ ios: 'gearshape.fill', android: 'settings' }}
-              size={isIOS ? size + 6 : size}
-              tintColor={color}
-            />
+            <NativeIcon name="settings" size={size} color={color} />
           ),
         }}
       />

@@ -23,5 +23,17 @@
     "save": "Lưu",
     "cancel": "Hủy",
     "confirm": "Xác nhận"
+  },
+  "timer": {
+    "title": "Bộ đếm",
+    "repCounter": "Đếm lượt lặp",
+    "target": "Mục tiêu",
+    "completeSet": "Hoàn thành hiệp",
+    "reset": "Đặt lại",
+    "holdToReset": "Nhấn giữ để đặt lại",
+    "tapToCount": "Chạm để đếm",
+    "sets": "Hiệp",
+    "work": "Tập",
+    "rest": "Nghỉ"
   }
 }
